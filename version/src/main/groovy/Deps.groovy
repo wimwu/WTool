@@ -154,4 +154,6 @@ interface Deps {
     String LeanCloud = 'cn.leancloud:storage-android:8.1.1'
     //RxAndroid
     String RxAndroid = 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    //BRAVH
+    String BRAVH = 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7'
 }

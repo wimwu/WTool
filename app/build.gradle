@@ -102,6 +102,7 @@ dependencies {
     implementation(Deps.RxAndroid)
     implementation(Deps.moshi)
     implementation(Deps.moshiConverter)
+    implementation(Deps.BRAVH)
     kapt(Deps.moshiCodegen)
     implementation(Deps.permissionsDispatcher)
     kapt(Deps.permissionsDispatcherProcessor)
