@@ -1,0 +1,108 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "kotlin-kapt"
+    id "kotlin-parcelize"
+    id "dagger.hilt.android.plugin"
+}
+
+android {
+    compileSdk Versions.compileSdk
+
+    defaultConfig {
+        applicationId "com.wim.tool"
+        minSdk Versions.minSdk
+        targetSdk Versions.targetSdk
+        versionCode Versions.versionCode
+        versionName Versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    // 增加自动签名的内容
+    signingConfigs {
+        config {
+            storeFile file('/Users/wim/Desktop/Project/Android/OpenProject/Kotlin/Reading/wim.keystore')
+            keyAlias "wim"
+            keyPassword "999999"
+            storePassword "999999"
+        }
+    }
+    buildTypes {
+        debug {
+            // 增加签名设置
+            signingConfig signingConfigs.config
+        }
+        release {
+            // 增加签名设置
+            signingConfig signingConfigs.config
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    /** Kotlin */
+    implementation(Deps.kotlinStdlib)
+    implementation(Deps.kotlinXCoroutinesCore)
+    implementation(Deps.kotlinXCoroutinesAndroid)
+
+    /** Google */
+    implementation(Deps.design)
+
+    /** Hilt */
+    implementation(Deps.hiltAndroid)
+    kapt(Deps.hiltAndroidCompiler)
+    implementation(Deps.hiltViewModel)
+    kapt(Deps.hiltCompiler)
+
+    /** support androidx libraries */
+    implementation(Deps.coreKtx)
+    implementation(Deps.room)
+    implementation(Deps.roomRuntime)
+    kapt(Deps.roomCompiler)
+    implementation(Deps.appcompat)
+    implementation(Deps.annotations)
+    implementation(Deps.recyclerView)
+    implementation(Deps.constraintLayout)
+    implementation(Deps.fragmentKtx)
+    implementation(Deps.pagingGuava)
+    implementation(Deps.pagingCommon)
+    implementation(Deps.pagingCompose)
+    implementation(Deps.pagingRuntime)
+    implementation(Deps.collectionKtx)
+    implementation(Deps.liveDataKtx)
+    implementation(Deps.viewModelKtx)
+    implementation(Deps.viewModelKtx)
+    implementation(Deps.lifecycleRuntimeTtx)
+    implementation(Deps.lifecycleViewModelSavedState)
+    implementation(Deps.navigationUIKtx)
+    implementation(Deps.navigationRuntimeKtx)
+    implementation(Deps.navigationFragmentKtx)
+
+    /** third libraries */
+    implementation(Deps.mmkv)
+    implementation(Deps.coil)
+    implementation(Deps.coilGif)
+    implementation(Deps.coilSvg)
+    implementation(Deps.okHttp3)
+    implementation(Deps.okHttp3LoggingInterceptor)
+    implementation(Deps.retrofit2)
+    implementation(Deps.LeanCloud)
+    implementation(Deps.RxAndroid)
+    implementation(Deps.moshi)
+    implementation(Deps.moshiConverter)
+    kapt(Deps.moshiCodegen)
+    implementation(Deps.permissionsDispatcher)
+    kapt(Deps.permissionsDispatcherProcessor)
+}

@@ -1,0 +1,200 @@
+dependencies {
+    /* readme *
+    *
+    * 为了统一管理插件/依赖库版本，避免版本冲突，统一将插件/依赖库信息配置在此文件中，
+    * 通过 gradlew updateDependencies task
+    * 解析此文件生成对应内容到 Deps.groovy 中进行统一引用
+    *
+    * <version> </version> 之间是一些版本的配置 ，解析后会放到 Deps.groovy 的 interface Versions 中
+    *
+    * <plugin> </plugin> 之间是插件引用路径 ，直接同步到项目根目录 build.gradle 中
+    *
+    * <dep> </dep> 之间是依赖库引用路径 ，解析后会放到 Deps.groovy 的 interface Deps 中
+    *
+    * 更新配置后执行以下方法同步更新到 Deps.groovy：
+    *  方法一：在控制台执行：gradlew updateDependencies
+    *  方法二：在右侧 gradle 面板找到 task:updateDependencies 双击执行。
+    */
+
+    /**
+     * version 部分
+     *
+     * 版本配置格式：def <name> = <value>
+     */
+
+    /*<version>*/
+
+    def minSdk = 21
+    def targetSdk = 31
+    def compileSdk = 31
+    def versionCode = 1
+    def versionName = "1.0"
+
+    /*</version>*/
+
+    /**
+     * 插件路径部分
+     * 配置插件引用路径时以 implementation 作为开头
+     */
+
+    /*<plugin>*/
+
+    implementation "com.android.tools.build:gradle:4.2.2"
+    implementation "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
+    implementation "com.google.dagger:hilt-android-gradle-plugin:2.40.5"
+
+    /*</plugin>*/
+
+
+    /**
+     * 依赖库路径部分
+     * 配置依赖库引用路径时以 implementation 作为开头
+     * 配置依赖库引用路径前备注格式： //<依赖库名> : <备注>，这个部分会被解析确定依赖库引用名称
+     */
+
+    /*<dep>*/
+
+    /*
+     * AndroidX
+     */
+    //coreKtx
+    implementation "androidx.core:core-ktx:1.6.0"
+    //appcompat
+    implementation "androidx.appcompat:appcompat:1.3.1"
+    //pagingCommon
+    implementation "androidx.paging:paging-common:3.0.1"
+    //pagingRuntime
+    implementation "androidx.paging:paging-runtime:3.0.1"
+    //pagingGuava
+    implementation "androidx.paging:paging-guava:3.0.1"
+    //pagingCompose
+    implementation "androidx.paging:paging-compose:1.0.0-alpha14"
+    //fragmentKtx
+    implementation "androidx.fragment:fragment-ktx:1.3.6"
+    //annotations
+    implementation "androidx.annotation:annotation:1.2.0"
+    //recyclerView
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    //collectionKtx
+    implementation("androidx.collection:collection-ktx:1.1.0")
+    //constraintLayout
+    implementation "androidx.constraintlayout:constraintlayout:2.1.1"
+
+    /*
+     * Room
+     */
+    //room
+    implementation "androidx.room:room-ktx:2.3.0"
+    //roomRuntime
+    implementation "androidx.room:room-runtime:2.3.0"
+    //roomCompiler
+    implementation "androidx.room:room-compiler:2.3.0"
+
+    /*
+     * Lifecycle
+     */
+    //lifecycleRuntimeTtx
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    //liveDataKtx :alternatively - just LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
+    //viewModelKtx :alternatively - just ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
+    //lifecycleViewModelSavedState :ViewModel新出的状态保存库
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.4.0"
+
+
+    /*
+     * Navigation
+     */
+    //navigationUIKtx
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
+    //navigationRuntimeKtx
+    implementation "androidx.navigation:navigation-runtime-ktx:2.3.5"
+    //navigationFragmentKtx
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
+    //navigationSafeArgsGradlePlugin : classpath
+    implementation "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
+
+    /*
+     * Google
+     */
+    //design
+    implementation "com.google.android.material:material:1.4.0"
+
+    /*
+     * Hilt
+     */
+    //hiltAndroid
+    implementation "com.google.dagger:hilt-android:2.40.5"
+    //hiltAndroidCompiler
+    implementation "com.google.dagger:hilt-android-compiler:2.40.5"
+    //hiltCompiler
+    implementation "androidx.hilt:hilt-compiler:1.0.0-alpha01"
+    //hiltViewModel
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01"
+
+    /*
+     * Kotlin
+     */
+    //kotlinStdlib
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.31"
+    //kotlinXCoroutinesAndroid
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9"
+    //kotlinXCoroutinesCore
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9"
+
+    /*
+     * 网络
+     */
+    //okHttp3
+    implementation "com.squareup.okhttp3:okhttp:4.9.1"
+    //okHttp3LoggingInterceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
+    //retrofit2
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    //retrofit2AdapterRxJava2
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
+
+    /*
+     * 路由
+     */
+    //aRouter
+    implementation "com.alibaba:arouter-api:1.5.2"
+    //aRouterCompiler
+    implementation "com.alibaba:arouter-compiler:1.5.2"
+
+    /*
+     * 图片加载
+     */
+    //coil
+    implementation "io.coil-kt:coil:1.4.0"
+    //coilGif
+    implementation "io.coil-kt:coil-gif:1.4.0"
+    //coilSvg
+    implementation "io.coil-kt:coil-svg:1.4.0"
+
+    /*
+     * 权限
+     */
+    //permissionsDispatcher
+    implementation "com.github.permissions-dispatcher:permissionsdispatcher:4.9.1"
+    //permissionsDispatcherProcessor
+    implementation "com.github.permissions-dispatcher:permissionsdispatcher-processor:4.9.1"
+
+    //moshi
+    implementation "com.squareup.moshi:moshi-kotlin:1.12.0"
+    //moshiCodegen
+    implementation "com.squareup.moshi:moshi-kotlin-codegen:1.12.0"
+    //moshiConverter
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
+
+    //mmkv
+    implementation 'com.tencent:mmkv-static:1.2.11'
+
+    //LeanCloud
+    implementation 'cn.leancloud:storage-android:8.1.1'
+    //RxAndroid
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    /*</dep>*/
+
+}

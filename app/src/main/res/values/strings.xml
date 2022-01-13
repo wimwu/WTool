@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">WKDemo</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_mine">Mine</string>
+
+    <!-- Api Error -->
+    <string name="api_error_not_found">服务器无法根据客户端的请求找到资源（网页）。</string>
+    <string name="api_error_service">服务器内部错误，无法完成请求。</string>
+    <string name="api_error_time_out">服务器等待客户端发送的请求时间过长，超时。</string>
+    <string name="api_error_unexpected">未知错误。</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_username">用户名</string>
+    <string name="prompt_email">邮箱</string>
+    <string name="prompt_mobile">手机号</string>
+    <string name="prompt_password">密码</string>
+    <string name="prompt_captcha">Captcha</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="send_captcha">发送验证码</string>
+    <string name="content_desc_logo">Logo</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
